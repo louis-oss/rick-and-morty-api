@@ -36,4 +36,12 @@ interface CharacterRepository {
      */
     suspend fun getEpisodesWhere(characterId: Int): List<Episode>
 
+    /**
+     * Fetches the characters seen in a specific location.
+     * @param locationId The unique identifier of the location.
+     * @return A list of characters (currently) seen in the specified location.
+     */
+
+    suspend fun getCharactersInLocation(locationId: Int): List<Character>
+
 }

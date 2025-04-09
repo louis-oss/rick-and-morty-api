@@ -1,4 +1,4 @@
-/*package org.mathieu.cleanrmapi.ui.screens.characterdetails
+package org.mathieu.cleanrmapi.ui
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.animateDpAsState
@@ -39,7 +39,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
@@ -47,6 +46,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.koinInject
+import org.mathieu.cleanrmapi.domain.SoundPlayer
 import org.mathieu.cleanrmapi.domain.character.models.CharacterGender
 import org.mathieu.cleanrmapi.domain.character.models.CharacterStatus
 import org.mathieu.cleanrmapi.domain.episode.models.Episode
@@ -56,10 +56,12 @@ import org.mathieu.cleanrmapi.ui.core.composables.IconWithImage
 import org.mathieu.cleanrmapi.ui.core.composables.PreviewContent
 import org.mathieu.cleanrmapi.ui.core.composables.Screen
 import org.mathieu.cleanrmapi.ui.core.extensions.imageVector
-import org.mathieu.cleanrmapi.ui.core.extensions.koinInject
 import org.mathieu.cleanrmapi.ui.core.extensions.text
 import org.mathieu.cleanrmapi.ui.core.theme.PrimaryColor
 import org.mathieu.cleanrmapi.ui.core.theme.SurfaceColor
+import org.mathieu.cleanrmapi.ui.screens.characterdetails.CharacterDetailsAction
+import org.mathieu.cleanrmapi.ui.screens.characterdetails.CharacterDetailsState
+import org.mathieu.cleanrmapi.ui.screens.characterdetails.CharacterDetailsViewModel
 
 
 @Composable
@@ -186,6 +188,7 @@ private object CharacterDetailsContent {
                 verticalArrangement = Arrangement.Bottom
             ) {
 
+                // Texte du nom avec effet défilant
                 Text(
                     modifier = Modifier
                         .background(SurfaceColor, RoundedCornerShape(4.dp))
@@ -197,7 +200,7 @@ private object CharacterDetailsContent {
                     textAlign = TextAlign.Center
                 )
 
-                // ➕ Texte cliquable avec son + navigation
+                // Texte de la location avec clic et son
                 Text(
                     text = state.location.name,
                     modifier = Modifier
@@ -208,7 +211,8 @@ private object CharacterDetailsContent {
                         .padding(4.dp),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = PrimaryColor
+                    color = PrimaryColor,
+                    textAlign = TextAlign.Center
                 )
 
                 AdditionalInfo(
@@ -284,4 +288,4 @@ private object CharacterDetailsContent {
 @Composable
 private fun CharacterDetailsPreview() = PreviewContent {
     Content()
-}*/
+}

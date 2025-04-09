@@ -104,6 +104,10 @@ internal class CharacterRepositoryImpl(
 
     }
 
+    override suspend fun getCharactersInLocation(locationId: Int): List<Character> {
+        return characterDAO.getCharactersInLocation(locationId).map { it.toModel() }
+    }
+
     private suspend fun getEpisodesFromIdList(@MustBeCommaSeparatedIds idList: String): List<Episode> {
 
         //TODO: fetch system

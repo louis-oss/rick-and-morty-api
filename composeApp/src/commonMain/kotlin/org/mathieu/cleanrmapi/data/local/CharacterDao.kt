@@ -22,4 +22,8 @@ interface CharacterDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(character: CharacterObject)
 
+    @Query("SELECT * FROM ${RMDatabase.CHARACTER_TABLE} WHERE locationId = :locationId")
+    suspend fun getCharactersInLocation(locationId: Int): List<CharacterObject>
+
+
 }
